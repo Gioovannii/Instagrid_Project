@@ -71,11 +71,11 @@
 		0492B4272385236C007C3279 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
-				0492B43023852A54007C3279 /* Delm-Medium.otf */,
-				0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */,
 				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
 				0492B41C2385234A007C3279 /* Assets.xcassets */,
+				0492B43023852A54007C3279 /* Delm-Medium.otf */,
+				0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */,
 				0492B4212385234A007C3279 /* Info.plist */,
 			);
 			path = "Supported Files";
