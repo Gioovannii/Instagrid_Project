@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var paternButtons: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func paternButtonTapped(_ sender: UIButton) {
+        print(sender.tag)
+    }
+    
 }
 
