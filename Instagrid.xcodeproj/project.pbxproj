@@ -71,6 +71,7 @@
 		0492B4272385236C007C3279 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
+				0492B41E2385234A007C3279 /* LaunchScreen.storyboard */,
 				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
 				0492B41C2385234A007C3279 /* Assets.xcassets */,
@@ -91,7 +92,6 @@
 		0492B429238523CE007C3279 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0492B41E2385234A007C3279 /* LaunchScreen.storyboard */,
 				0492B41923852345007C3279 /* Main.storyboard */,
 			);
 			path = View;
