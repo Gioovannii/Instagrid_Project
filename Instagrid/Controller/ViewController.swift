@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    @IBOutlet var paternViews: [UIView]!
+    @IBOutlet var patternButtons: [UIButton]!
+    @IBOutlet weak var topRightView: UIView!
+    @IBOutlet weak var bottomRightView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,27 +22,30 @@ class ViewController: UIViewController {
     }
     
     @IBAction func paternButtonTapped(_ sender: UIButton) {
+        patternButtons.forEach { $0.isSelected = false }
+        sender.isSelected = true
+        
         switch sender.tag {
         case 1:
-            resetPattern()
-            paternViews[1].isHidden = true
+            topRightView.isHidden = true
+            bottomRightView.isHidden = false
         case 2:
-            resetPattern()
-            paternViews[2].isHidden = true
+            topRightView.isHidden = false
+            bottomRightView.isHidden = true
+            
         case 3:
-            resetPattern()
+            topRightView.isHidden = false
+            bottomRightView.isHidden = false
             
         default:
             break
         }
     }
-    
-    /// Set all View to normal view
-    func resetPattern() {
-        for i in 0..<paternViews.count {
-            paternViews[i].isHidden = false
-        }
+    @IBAction func pickUpImagesButton(_ sender: Any) {
+        
+        
     }
     
+  
 }
 

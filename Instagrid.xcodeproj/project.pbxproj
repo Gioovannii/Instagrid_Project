@@ -72,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				0492B41E2385234A007C3279 /* LaunchScreen.storyboard */,
-				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
 				0492B41C2385234A007C3279 /* Assets.xcassets */,
 				0492B43023852A54007C3279 /* Delm-Medium.otf */,
@@ -100,6 +99,7 @@
 		0492B42A238523F1007C3279 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41723852345007C3279 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -137,6 +137,7 @@
 				TargetAttributes = {
 					0492B40F23852345007C3279 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -324,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
@@ -334,6 +336,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.GiovanniGaffe.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagrid/Supported Files/Instagrid-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -343,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
@@ -353,6 +358,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.GiovanniGaffe.Instagrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagrid/Supported Files/Instagrid-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

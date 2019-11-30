@@ -55,9 +55,12 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-Lw-i9l" userLabel="ViewTopLeft">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9W-7V-mrU" userLabel="topLeft">
+                                                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9W-7V-mrU" userLabel="topLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="pickUpImagesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K64-hi-hi2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,9 +98,12 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPz-b5-BVz" userLabel="ViewTopRight">
                                                         <rect key="frame" x="140" y="0.0" width="125" height="125"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4i2-x9-qOW" userLabel="topRight">
+                                                            <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4i2-x9-qOW" userLabel="topRight">
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="pickUpImagesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JeV-BI-MAZ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,12 +119,15 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-ve-WAa" userLabel="Stack View Bottom">
                                                 <rect key="frame" x="0.0" y="140" width="265" height="125"/>
                                                 <subviews>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-IO-a1d" userLabel="ViewBottomLeft">
-                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="125"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-IO-a1d" userLabel="ViewBottomLeft">
+                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Q-PJ-eXK" userLabel="bottomLeft">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="125"/>
+                                                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Q-PJ-eXK" userLabel="bottomLeft">
+                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="pickUpImagesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HiU-ry-oe2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,12 +138,15 @@
                                                             <constraint firstItem="L5Q-PJ-eXK" firstAttribute="top" secondItem="QgJ-IO-a1d" secondAttribute="top" id="kqs-RO-qkM"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoX-Bm-5KJ" userLabel="ViewBottomRight">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoX-Bm-5KJ" userLabel="ViewBottomRight">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="125"/>
                                                         <subviews>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSn-cY-UxL" userLabel="bottomRight">
-                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="125"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="pickUpImagesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wp9-gB-gSU"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -293,13 +305,15 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xY2-Ey-Hrx" userLabel="Button1">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
+                                        <state key="selected" image="Selected"/>
                                         <connections>
                                             <action selector="paternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="njY-Xp-hL8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15I-es-xy4" userLabel="Button2">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15I-es-xy4" userLabel="Button2">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
-                                        <state key="normal" image="Selected" backgroundImage="Layout 2"/>
+                                        <state key="normal" backgroundImage="Layout 2"/>
+                                        <state key="selected" image="Selected"/>
                                         <connections>
                                             <action selector="paternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZJk-zf-UQU"/>
                                         </connections>
@@ -307,6 +321,7 @@
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRT-sV-BuF" userLabel="Button3">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
+                                        <state key="selected" image="Selected"/>
                                         <connections>
                                             <action selector="paternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vll-YE-kKs"/>
                                         </connections>
@@ -511,10 +526,11 @@
                         </variation>
                     </view>
                     <connections>
-                        <outletCollection property="paternViews" destination="pQ9-Lw-i9l" collectionClass="NSMutableArray" id="3zf-AK-SVo"/>
-                        <outletCollection property="paternViews" destination="mPz-b5-BVz" collectionClass="NSMutableArray" id="omq-08-aKg"/>
-                        <outletCollection property="paternViews" destination="QgJ-IO-a1d" collectionClass="NSMutableArray" id="Eyd-9Q-yTF"/>
-                        <outletCollection property="paternViews" destination="CoX-Bm-5KJ" collectionClass="NSMutableArray" id="tZM-fr-L8g"/>
+                        <outlet property="bottomRightView" destination="CoX-Bm-5KJ" id="vHf-gP-qOu"/>
+                        <outlet property="topRightView" destination="mPz-b5-BVz" id="KSy-7A-33G"/>
+                        <outletCollection property="patternButtons" destination="xY2-Ey-Hrx" collectionClass="NSMutableArray" id="lfW-Nj-V7G"/>
+                        <outletCollection property="patternButtons" destination="15I-es-xy4" collectionClass="NSMutableArray" id="UP4-1M-PP8"/>
+                        <outletCollection property="patternButtons" destination="IRT-sV-BuF" collectionClass="NSMutableArray" id="XIN-os-Xcs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
