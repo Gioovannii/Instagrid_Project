@@ -531,6 +531,10 @@
                         <outletCollection property="patternButtons" destination="xY2-Ey-Hrx" collectionClass="NSMutableArray" id="lfW-Nj-V7G"/>
                         <outletCollection property="patternButtons" destination="15I-es-xy4" collectionClass="NSMutableArray" id="UP4-1M-PP8"/>
                         <outletCollection property="patternButtons" destination="IRT-sV-BuF" collectionClass="NSMutableArray" id="XIN-os-Xcs"/>
+                        <outletCollection property="positionPickedPhotoButton" destination="z9W-7V-mrU" collectionClass="NSMutableArray" id="oTg-bM-PG2"/>
+                        <outletCollection property="positionPickedPhotoButton" destination="4i2-x9-qOW" collectionClass="NSMutableArray" id="HIh-Nw-Wed"/>
+                        <outletCollection property="positionPickedPhotoButton" destination="L5Q-PJ-eXK" collectionClass="NSMutableArray" id="sjd-gp-sp5"/>
+                        <outletCollection property="positionPickedPhotoButton" destination="GSn-cY-UxL" collectionClass="NSMutableArray" id="Uba-bj-4HX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
