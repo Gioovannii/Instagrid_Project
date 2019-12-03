@@ -42,7 +42,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             break
         }
     }
-    @IBAction func pickUpImagesButton(_ sender: Any) {
+    @IBAction func pickUpImagesButton(_ sender: UIButton) {
+        
+        selectedButton = sender
         
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
@@ -61,14 +63,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        self.present(actionSheet, animated: true, completion: nil)
+        present(actionSheet, animated: true, completion: nil)
         
     }
     
+    var selectedButton: UIButton?
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.originalImage] as! UIView
+        let image = info[.originalImage] as? UIImage
+        selectedButton?.setImage(image, for: .normal)
         
-        positionPickedPhotoButton[0].image(for: .normal) = image
+      //  positionPickedPhotoButton[0].image(for: .normal) = image
         
         picker.dismiss(animated: true, completion: nil)
     }

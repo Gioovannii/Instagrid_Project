@@ -26,8 +26,8 @@
 		0492B41C2385234A007C3279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0492B41F2385234A007C3279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0492B4212385234A007C3279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = ../../../ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		0492B43023852A54007C3279 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../Delm-Medium.otf"; sourceTree = "<group>"; };
+		0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstySoftRegular.otf; path = "../../../../Documents/Papiers importants/ThirstySoftRegular.otf"; sourceTree = "<group>"; };
+		0492B43023852A54007C3279 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Delm-Medium.otf"; path = "../../../../Documents/Papiers importants/Delm-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				0492B4272385236C007C3279 /* Supported Files */,
-				0492B428238523C1007C3279 /* Model */,
 				0492B429238523CE007C3279 /* View */,
 				0492B42A238523F1007C3279 /* Controller */,
 			);
@@ -79,13 +78,6 @@
 				0492B4212385234A007C3279 /* Info.plist */,
 			);
 			path = "Supported Files";
-			sourceTree = "<group>";
-		};
-		0492B428238523C1007C3279 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0492B429238523CE007C3279 /* View */ = {
