@@ -122,7 +122,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-IO-a1d" userLabel="ViewBottomLeft">
                                                         <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Q-PJ-eXK" userLabel="bottomLeft">
+                                                            <button opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5Q-PJ-eXK" userLabel="bottomLeft">
                                                                 <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
