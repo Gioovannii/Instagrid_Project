@@ -75,11 +75,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
         picker.dismiss(animated: true, completion: nil)
     }
-    
-
-    
-    
-    
-    
-    
 }
