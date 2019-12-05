@@ -46,10 +46,10 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fkc-Gp-vlB" userLabel="CenterView">
                                 <rect key="frame" x="40" y="186" width="295" height="295"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xfT-rk-cP5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xfT-rk-cP5">
                                         <rect key="frame" x="15" y="15" width="265" height="265"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hSg-4C-0dW" userLabel="Stack View Upper">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hSg-4C-0dW" userLabel="Stack View Upper">
                                                 <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-Lw-i9l" userLabel="ViewTopLeft">
@@ -116,7 +116,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-ve-WAa" userLabel="Stack View Bottom">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QkU-ve-WAa" userLabel="Stack View Bottom">
                                                 <rect key="frame" x="0.0" y="140" width="265" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="QgJ-IO-a1d" userLabel="ViewBottomLeft">

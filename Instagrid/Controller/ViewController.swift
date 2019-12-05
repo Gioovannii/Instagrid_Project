@@ -23,6 +23,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func paternButtonTapped(_ sender: UIButton) {
+        // UnSelect all buttons to normal and selcted the one tapped
         patternButtons.forEach { $0.isSelected = false }
         sender.isSelected = true
         
@@ -42,6 +43,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             break
         }
     }
+    
     @IBAction func pickUpImagesButton(_ sender: UIButton) {
         
         selectedButton = sender
