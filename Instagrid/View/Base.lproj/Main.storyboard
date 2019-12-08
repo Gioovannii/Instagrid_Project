@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -527,7 +528,9 @@
                     </view>
                     <connections>
                         <outlet property="bottomRightView" destination="CoX-Bm-5KJ" id="vHf-gP-qOu"/>
+                        <outlet property="squareImagesLayout" destination="fkc-Gp-vlB" id="9mV-fo-8g2"/>
                         <outlet property="topRightView" destination="mPz-b5-BVz" id="KSy-7A-33G"/>
+                        <outlet property="txtSwipeToShare" destination="70k-bV-SqT" id="BDS-j9-arn"/>
                         <outletCollection property="patternButtons" destination="xY2-Ey-Hrx" collectionClass="NSMutableArray" id="lfW-Nj-V7G"/>
                         <outletCollection property="patternButtons" destination="15I-es-xy4" collectionClass="NSMutableArray" id="UP4-1M-PP8"/>
                         <outletCollection property="patternButtons" destination="IRT-sV-BuF" collectionClass="NSMutableArray" id="XIN-os-Xcs"/>

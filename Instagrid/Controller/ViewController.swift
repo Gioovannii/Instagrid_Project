@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    var imagesArray = [UIImage]()
+
     @IBOutlet var patternButtons: [UIButton]!
     @IBOutlet weak var topRightView: UIView!
     @IBOutlet weak var bottomRightView: UIView!
     @IBOutlet var positionPickedPhotoButton: [UIButton]!
-    
+    @IBOutlet weak var txtSwipeToShare: UILabel!
+    @IBOutlet weak var squareImagesLayout: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,10 +73,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var selectedButton: UIButton?
     
+    /// 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         selectedButton?.setImage(image, for: .normal)
                 
         picker.dismiss(animated: true, completion: nil)
     }
+
+//    func initalisationSwipeGesture() {
+//        let topSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(SwipeActionUp(_:)))
+//        topSwipeGesture.direction = .up
+//        self.view.addGestureRecognizer(topSwipeGesture)
+//
+//
+//        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action:#selector(SwipeActionLeft(_:)))
+//        leftSwipeGesture.direction = .left
+//        self.view.addGestureRecognizer(leftSwipeGesture)
+//    }
+//
+//    @IBAction func SwipeActionUp() {
+//
+//    }
+//
+//    @IBAction func SwipeActionLeft() {
+//
+//       }
+
 }

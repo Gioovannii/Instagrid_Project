@@ -70,9 +70,7 @@
 		0492B4272385236C007C3279 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
-				0492B41E2385234A007C3279 /* LaunchScreen.storyboard */,
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
-				0492B41C2385234A007C3279 /* Assets.xcassets */,
 				0492B43023852A54007C3279 /* Delm-Medium.otf */,
 				0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */,
 				0492B4212385234A007C3279 /* Info.plist */,
@@ -83,6 +81,8 @@
 		0492B429238523CE007C3279 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0492B41C2385234A007C3279 /* Assets.xcassets */,
+				0492B41E2385234A007C3279 /* LaunchScreen.storyboard */,
 				0492B41923852345007C3279 /* Main.storyboard */,
 			);
 			path = View;
@@ -321,7 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +342,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
