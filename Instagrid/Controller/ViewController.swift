@@ -16,34 +16,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topRightView: UIView!
     @IBOutlet weak var bottomRightView: UIView!
     @IBOutlet weak var labelToSwipe: UILabel!
-    @IBOutlet weak var squareImagesLayout: UIView!
+    @IBOutlet weak var squareImagesView: UIView!
     
+    var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
     // Properties
-    var images = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
-        
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipeUp.direction = .up
-        
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        swipeLeft.direction = .left
-        
-        view.addGestureRecognizer(swipeUp)
-        view.addGestureRecognizer(swipeLeft)
-
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        guard let swipeGesture = swipeGestureRecognizer else { return }
+        setupSwipeDirection()
+        squareImagesView.addGestureRecognizer(swipeGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
+    // ==============================
+    // UIActivityController pop up
+    
     /// switch when up or left share
-    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+    @objc
+    func handleSwipe(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             switch sender.direction {
             case .up:
-                
                 print("Swipe UP ")
             case .left:
                 print("Swipe left")
@@ -51,6 +49,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 break
             }
         }
+    }
+    
+    @objc
+    func setupSwipeDirection() {
+        if UIDevice.current.orientation == .portrait {
+            swipeGestureRecognizer?.direction = .up
+        } else {
+            swipeGestureRecognizer?.direction = .left
+        }
+    }
+    
+    
+    func shareUIActivityController() {
+        
     }
     
     /// switch action when tapped Layout
@@ -112,6 +124,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         picker.dismiss(animated: true, completion: nil)
     }
-
-
 }

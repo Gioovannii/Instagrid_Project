@@ -529,7 +529,7 @@
                     <connections>
                         <outlet property="bottomRightView" destination="CoX-Bm-5KJ" id="vHf-gP-qOu"/>
                         <outlet property="labelToSwipe" destination="70k-bV-SqT" id="BDS-j9-arn"/>
-                        <outlet property="squareImagesLayout" destination="fkc-Gp-vlB" id="9mV-fo-8g2"/>
+                        <outlet property="squareImagesView" destination="fkc-Gp-vlB" id="9mV-fo-8g2"/>
                         <outlet property="topRightView" destination="mPz-b5-BVz" id="KSy-7A-33G"/>
                         <outletCollection property="patternButtons" destination="xY2-Ey-Hrx" collectionClass="NSMutableArray" id="lfW-Nj-V7G"/>
                         <outletCollection property="patternButtons" destination="15I-es-xy4" collectionClass="NSMutableArray" id="UP4-1M-PP8"/>
