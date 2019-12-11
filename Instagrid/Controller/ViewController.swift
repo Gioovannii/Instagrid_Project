@@ -32,8 +32,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         squareImagesView.addGestureRecognizer(swipeGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
     
-    let panGestureReconizer = UIPanGestureRecognizer(target: self, action: #selector(dragSquareImagesView(sender:)))
-        squareImagesView.addGestureRecognizer(panGestureReconizer)
+//    let panGestureReconizer = UIPanGestureRecognizer(target: self, action: #selector(dragSquareImagesView(sender:)))
+//        squareImagesView.addGestureRecognizer(panGestureReconizer)
     }
     
     // ==============================
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @objc
     func dragSquareImagesView(sender: UIPanGestureRecognizer) {
-        
+
         switch sender.state {
         case .began, .changed:
             swipeOutImageView(gesture: sender)
@@ -74,11 +74,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         default:
             break
         }
-        
+
     }
-    
+
     func swipeOutImageView(gesture: UIPanGestureRecognizer) {
+//        let translation = gesture.translation(in: squareImagesView)
+//        squareImagesView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+//
+//        var screenLength = UIScreen.main.bounds.width
+//        let translationPercent = translation.y / (screenLength/2)
+
         
+
+
     }
     
     
