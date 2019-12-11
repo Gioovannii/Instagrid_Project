@@ -31,6 +31,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setupSwipeDirection()
         squareImagesView.addGestureRecognizer(swipeGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
+    
+    let panGestureReconizer = UIPanGestureRecognizer(target: self, action: #selector(dragSquareImagesView(sender:)))
+        squareImagesView.addGestureRecognizer(panGestureReconizer)
     }
     
     // ==============================
@@ -44,7 +47,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             case .up:
                 print("Swipe UP ")
             case .left:
-                print("Swipe left")
+                print("Swipe Left")
             default:
                 break
             }
@@ -55,15 +58,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setupSwipeDirection() {
         if UIDevice.current.orientation == .portrait {
             swipeGestureRecognizer?.direction = .up
-        } else {
+        } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             swipeGestureRecognizer?.direction = .left
         }
+    }
+    
+    @objc
+    func dragSquareImagesView(sender: UIPanGestureRecognizer) {
+        
+        switch sender.state {
+        case .began, .changed:
+            swipeOutImageView(gesture: sender)
+        case .cancelled, .ended:
+            shareUIActivityController()
+        default:
+            break
+        }
+        
+    }
+    
+    func swipeOutImageView(gesture: UIPanGestureRecognizer) {
+        
     }
     
     
     func shareUIActivityController() {
         
     }
+    
     
     /// switch action when tapped Layout
     @IBAction func paternButtonTapped(_ sender: UIButton) {
