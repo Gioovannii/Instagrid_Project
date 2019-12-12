@@ -21,19 +21,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
     // Properties
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         // Do any additional setup after loading the view.
-        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
         guard let swipeGesture = swipeGestureRecognizer else { return }
         setupSwipeDirection()
         squareImagesView.addGestureRecognizer(swipeGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
-    
-//    let panGestureReconizer = UIPanGestureRecognizer(target: self, action: #selector(dragSquareImagesView(sender:)))
-//        squareImagesView.addGestureRecognizer(panGestureReconizer)
+        
+        
     }
     
     // ==============================
@@ -41,13 +40,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /// switch when up or left share
     @objc
-    func handleSwipe(sender: UISwipeGestureRecognizer) {
+    func swipeOutImageView(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             switch sender.direction {
             case .up:
+                swipeActionUp(gesture: sender)
                 print("Swipe UP ")
+                shareUIActivityController()
             case .left:
+                swipeActionLeft(gesture: sender)
                 print("Swipe Left")
+                shareUIActivityController()
+                
             default:
                 break
             }
@@ -63,32 +67,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @objc
-    func dragSquareImagesView(sender: UIPanGestureRecognizer) {
-
-        switch sender.state {
-        case .began, .changed:
-            swipeOutImageView(gesture: sender)
-        case .cancelled, .ended:
-            shareUIActivityController()
-        default:
-            break
-        }
-
-    }
-
-    func swipeOutImageView(gesture: UIPanGestureRecognizer) {
-//        let translation = gesture.translation(in: squareImagesView)
-//        squareImagesView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
-//
-//        var screenLength = UIScreen.main.bounds.width
-//        let translationPercent = translation.y / (screenLength/2)
-
+    
+    func swipeActionUp(gesture: UISwipeGestureRecognizer) {
         
-
-
+        let viewPosition = CGPoint(x: self.squareImagesView.frame.origin.x, y: self.squareImagesView.frame.origin.y - 600.0)
+        
+        squareImagesView.frame = CGRect(x: viewPosition.x, y: viewPosition.y, width: self.squareImagesView.frame.size.width, height: squareImagesView.frame.size.height)
+        
     }
     
+    
+    func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
+        
+        let viewPosition = CGPoint(x: self.squareImagesView.frame.origin.x - 600.0, y: self.squareImagesView.frame.origin.y)
+        
+        squareImagesView.frame = CGRect(x: viewPosition.x, y: viewPosition.y, width: self.squareImagesView.frame.size.width, height: squareImagesView.frame.size.height)
+    }
     
     func shareUIActivityController() {
         
@@ -151,7 +145,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let image = info[.originalImage] as? UIImage
         selectedButton?.setImage(image, for: .normal)
         selectedButton?.contentMode = .scaleAspectFit
-
+        
         picker.dismiss(animated: true, completion: nil)
     }
 }
