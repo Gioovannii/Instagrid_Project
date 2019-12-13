@@ -32,7 +32,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         squareImagesView.addGestureRecognizer(swipeGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
         
-        
     }
     
     // ==============================
@@ -46,11 +45,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             case .up:
                 swipeActionUp(gesture: sender)
                 print("Swipe UP ")
-                shareUIActivityController()
             case .left:
                 swipeActionLeft(gesture: sender)
                 print("Swipe Left")
-                shareUIActivityController()
                 
             default:
                 break
@@ -67,27 +64,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
     func swipeActionUp(gesture: UISwipeGestureRecognizer) {
         
-        let viewPosition = CGPoint(x: self.squareImagesView.frame.origin.x, y: self.squareImagesView.frame.origin.y - 600.0)
-        
-        squareImagesView.frame = CGRect(x: viewPosition.x, y: viewPosition.y, width: self.squareImagesView.frame.size.width, height: squareImagesView.frame.size.height)
-        
+        UIView.animate(withDuration: 1, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+        }) { (_) in
+            print("Anim termine up ")
+            self.shareUIActivityController()
+        }
     }
-    
     
     func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
         
-        let viewPosition = CGPoint(x: self.squareImagesView.frame.origin.x - 600.0, y: self.squareImagesView.frame.origin.y)
-        
-        squareImagesView.frame = CGRect(x: viewPosition.x, y: viewPosition.y, width: self.squareImagesView.frame.size.width, height: squareImagesView.frame.size.height)
+        UIView.animate(withDuration: 1, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        }) { (_) in
+            print("Anim termine left")
+            self.shareUIActivityController()
+        }
     }
     
+    //    let renderer = UIGraphicsImageRenderer(size: squareImagesView.bounds.size)
+    //    let image = renderer.image { ctx in
+    //        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+    //    }
+    
+    /// UIActivity for share Image
     func shareUIActivityController() {
-        
+        let items = [squareImagesView]
+        let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+        present(ac, animated: true)
     }
-    
     
     /// switch action when tapped Layout
     @IBAction func paternButtonTapped(_ sender: UIButton) {
@@ -122,10 +129,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let actionSheet = UIAlertController(title: "Upload Photo", message: "Choose a source", preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            imagePickerController.sourceType = .camera
-            self.present(imagePickerController, animated: true, completion: nil)
-        }))
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+        }
         
         actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (action: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
@@ -140,7 +150,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var selectedButton: UIButton?
     
-    /// set image in the view
+    /// set image in squareCenterView
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         selectedButton?.setImage(image, for: .normal)
