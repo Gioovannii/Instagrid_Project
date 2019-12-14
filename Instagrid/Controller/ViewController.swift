@@ -20,12 +20,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
+    
     // Properties
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+        
         swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
         guard let swipeGesture = swipeGestureRecognizer else { return }
         setupSwipeDirection()
@@ -34,9 +35,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    // ==============================
-    // UIActivityController pop up
-    
     /// switch when up or left share
     @objc
     func swipeOutImageView(sender: UISwipeGestureRecognizer) {
@@ -44,11 +42,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             switch sender.direction {
             case .up:
                 swipeActionUp(gesture: sender)
-                print("Swipe UP ")
             case .left:
                 swipeActionLeft(gesture: sender)
-                print("Swipe Left")
-                
             default:
                 break
             }
@@ -59,13 +54,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setupSwipeDirection() {
         if UIDevice.current.orientation == .portrait {
             swipeGestureRecognizer?.direction = .up
+            labelToSwipe.text = "Swipe up to share"
+
         } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
             swipeGestureRecognizer?.direction = .left
+            labelToSwipe.text = "Swipe left to share"
         }
     }
     
     func swipeActionUp(gesture: UISwipeGestureRecognizer) {
-        
         UIView.animate(withDuration: 1, animations: {
             self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
         }) { (_) in
@@ -75,7 +72,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
-        
         UIView.animate(withDuration: 1, animations: {
             self.squareImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
         }) { (_) in
@@ -84,15 +80,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    //    let renderer = UIGraphicsImageRenderer(size: squareImagesView.bounds.size)
-    //    let image = renderer.image { ctx in
-    //        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-    //    }
-    
     /// UIActivity for share Image
     func shareUIActivityController() {
-        let items = [squareImagesView]
-        let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+                let renderer = UIGraphicsImageRenderer(size: squareImagesView.bounds.size)
+                let image = renderer.image { ctx in
+                    self.squareImagesView.drawHierarchy(in: self.squareImagesView.bounds, afterScreenUpdates: true)
+                }
+        
+        let items = [image]
+        let ac = UIActivityViewController(activityItems: items , applicationActivities: nil)
         present(ac, animated: true)
     }
     
@@ -109,10 +105,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case 2:
             topRightView.isHidden = false
             bottomRightView.isHidden = true
-            
+            pickUpImagesButton(sender)
         case 3:
             topRightView.isHidden = false
             bottomRightView.isHidden = false
+            pickUpImagesButton(sender)
             
         default:
             break
@@ -136,7 +133,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.present(imagePickerController, animated: true, completion: nil)
             }))
         }
-        
         actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (action: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
             self.present(imagePickerController, animated: true, completion: nil)
@@ -146,7 +142,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         present(actionSheet, animated: true, completion: nil)
         
+        
     }
+
     
     var selectedButton: UIButton?
     
