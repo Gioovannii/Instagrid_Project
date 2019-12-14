@@ -69,6 +69,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("Anim termine up ")
             self.shareUIActivityController()
         }
+        UIView.animate(withDuration: 3, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: 0)
+        }) { (_) in
+            print("View Back")
+        }
     }
     
     func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
@@ -77,6 +82,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }) { (_) in
             print("Anim termine left")
             self.shareUIActivityController()
+        }
+        UIView.animate(withDuration: 1, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: 0)
+        }) { (_) in
+            print("View Back")
         }
     }
     
