@@ -8,102 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class ViewController: UIViewController {
     
-    // IBOutlet
+    // MARK: - IBOutlet and IBAction
     
-    @IBOutlet var patternButtons: [UIButton]!
-    @IBOutlet weak var topRightView: UIView!
-    @IBOutlet weak var bottomRightView: UIView!
-    @IBOutlet weak var labelToSwipe: UILabel!
-    @IBOutlet weak var squareImagesView: UIView!
-    
-    var swipeGestureRecognizer: UISwipeGestureRecognizer?
-    
-    
-    // Properties
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
-        guard let swipeGesture = swipeGestureRecognizer else { return }
-        setupSwipeDirection()
-        squareImagesView.addGestureRecognizer(swipeGesture)
-        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
-    }
-    
-    /// switch when up or left share
-    @objc
-    func swipeOutImageView(sender: UISwipeGestureRecognizer) {
-        if sender.state == .ended {
-            switch sender.direction {
-            case .up:
-                swipeActionUp(gesture: sender)
-            case .left:
-                swipeActionLeft(gesture: sender)
-            default:
-                break
-            }
-        }
-    }
-    
-    @objc
-    func setupSwipeDirection() {
-        if UIDevice.current.orientation == .portrait {
-            swipeGestureRecognizer?.direction = .up
-            labelToSwipe.text = "Swipe up to share"
-
-        } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            swipeGestureRecognizer?.direction = .left
-            labelToSwipe.text = "Swipe left to share"
-        }
-    }
-    
-    func swipeActionUp(gesture: UISwipeGestureRecognizer) {
-        UIView.animate(withDuration: 1, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
-        }) { (_) in
-            print("Anim termine up ")
-            self.shareUIActivityController()
-        }
-        UIView.animate(withDuration: 3, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: 0)
-        }) { (_) in
-            print("View Back")
-        }
-    }
-    
-    func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
-        UIView.animate(withDuration: 1, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
-        }) { (_) in
-            print("Anim termine left")
-            self.shareUIActivityController()
-        }
-        UIView.animate(withDuration: 1, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: 0)
-        }) { (_) in
-            print("View Back")
-        }
-    }
-    
-    /// UIActivity for share Image
-    func shareUIActivityController() {
-                let renderer = UIGraphicsImageRenderer(size: squareImagesView.bounds.size)
-                let image = renderer.image { ctx in
-                    self.squareImagesView.drawHierarchy(in: self.squareImagesView.bounds, afterScreenUpdates: true)
-                }
-        
-        let items = [image]
-        let ac = UIActivityViewController(activityItems: items , applicationActivities: nil)
-        present(ac, animated: true)
-    }
+    @IBOutlet private var patternButtons: [UIButton]!
+    @IBOutlet private weak var topRightView: UIView!
+    @IBOutlet private weak var bottomRightView: UIView!
+    @IBOutlet private weak var labelToSwipe: UILabel!
+    @IBOutlet private weak var squareImagesView: UIView!
     
     /// switch action when tapped Layout
-    @IBAction func paternButtonTapped(_ sender: UIButton) {
+    @IBAction private func paternButtonTapped(_ sender: UIButton) {
         // UnSelect all buttons to normal and selcted the one tapped
         patternButtons.forEach { $0.isSelected = false }
         sender.isSelected = true
@@ -115,19 +31,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         case 2:
             topRightView.isHidden = false
             bottomRightView.isHidden = true
-            pickUpImagesButton(sender)
         case 3:
             topRightView.isHidden = false
             bottomRightView.isHidden = false
-            pickUpImagesButton(sender)
-            
         default:
             break
         }
     }
     
     /// UIAlert to ask user interaction
-    @IBAction func pickUpImagesButton(_ sender: UIButton) {
+    @IBAction private func pickUpImagesButton(_ sender: UIButton) {
         
         selectedButton = sender
         
@@ -149,20 +62,95 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         present(actionSheet, animated: true, completion: nil)
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
+        guard let swipeGesture = swipeGestureRecognizer else { return }
+        setupSwipeDirection()
+        squareImagesView.addGestureRecognizer(swipeGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    // MARK: - Properties
+    
+    private var selectedButton: UIButton?
+    private var swipeGestureRecognizer: UISwipeGestureRecognizer?
+    
+    /// switch when up or left share
+    @objc
+    private func swipeOutImageView(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .up:
+                swipeActionUp(gesture: sender)
+            case .left:
+                swipeActionLeft(gesture: sender)
+            default:
+                break
+            }
+        }
+    }
+    
+    
+    @objc /// Adjust view if view change
+    private func setupSwipeDirection() {
+        if UIDevice.current.orientation == .portrait {
+            swipeGestureRecognizer?.direction = .up
+            labelToSwipe.text = "Swipe up to share"
+            
+        } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            swipeGestureRecognizer?.direction = .left
+            labelToSwipe.text = "Swipe left to share"
+        }
+    }
+    
+    /// animate view for sharing
+    private func swipeActionUp(gesture: UISwipeGestureRecognizer) {
+        UIView.animate(withDuration: 1, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+        }) { (_) in
+            self.shareUIActivityController()
+        }
+    }
+    
+    /// animate view for sharing
+    private func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
+        UIView.animate(withDuration: 1, animations: {
+            self.squareImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+        }) { (_) in
+            self.shareUIActivityController()
+        }
         
     }
-
     
-    var selectedButton: UIButton?
+    /// UIActivity for share Image
+    private func shareUIActivityController() {
+        
+        // present Activity with transform image
+        let items = [squareImagesView.asImage]
+        let ac = UIActivityViewController(activityItems: items , applicationActivities: nil)
+        present(ac, animated: true)
+        ac.completionWithItemsHandler = { _, _ , _, _ in
+            UIView.animate(withDuration: 1) {
+                // identity put back element original position
+                self.squareImagesView.transform = .identity
+            }
+        }
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     /// set image in squareCenterView
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         selectedButton?.setImage(image, for: .normal)
-        selectedButton?.contentMode = .scaleAspectFit
+       // selectedButton?.contentMode = .scaleAspectFit
         
         picker.dismiss(animated: true, completion: nil)
     }
