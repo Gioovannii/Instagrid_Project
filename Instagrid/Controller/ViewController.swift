@@ -80,6 +80,18 @@ final class ViewController: UIViewController {
     
     private var selectedButton: UIButton?
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
+   
+    @objc /// Adjust view if view change
+       private func setupSwipeDirection() {
+           if UIDevice.current.orientation == .portrait {
+               swipeGestureRecognizer?.direction = .up
+               labelToSwipe.text = "Swipe up to share"
+               
+           } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+               swipeGestureRecognizer?.direction = .left
+               labelToSwipe.text = "Swipe left to share"
+           }
+       }
     
     /// switch when up or left share
     @objc
@@ -93,19 +105,6 @@ final class ViewController: UIViewController {
             default:
                 break
             }
-        }
-    }
-    
-    
-    @objc /// Adjust view if view change
-    private func setupSwipeDirection() {
-        if UIDevice.current.orientation == .portrait {
-            swipeGestureRecognizer?.direction = .up
-            labelToSwipe.text = "Swipe up to share"
-            
-        } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
-            swipeGestureRecognizer?.direction = .left
-            labelToSwipe.text = "Swipe left to share"
         }
     }
     
@@ -125,7 +124,6 @@ final class ViewController: UIViewController {
         }) { (_) in
             self.shareUIActivityController()
         }
-        
     }
     
     /// UIActivity for share Image
@@ -135,6 +133,7 @@ final class ViewController: UIViewController {
         let items = [squareImagesView.asImage]
         let ac = UIActivityViewController(activityItems: items , applicationActivities: nil)
         present(ac, animated: true)
+        // parameters { activityType, completed(bool), returnItems, activityError }
         ac.completionWithItemsHandler = { _, _ , _, _ in
             UIView.animate(withDuration: 1) {
                 // identity put back element original position
@@ -150,7 +149,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         selectedButton?.setImage(image, for: .normal)
-       // selectedButton?.contentMode = .scaleAspectFit
+        // selectedButton?.contentMode = .scaleAspectFit
         
         picker.dismiss(animated: true, completion: nil)
     }
