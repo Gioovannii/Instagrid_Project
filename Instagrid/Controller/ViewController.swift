@@ -91,45 +91,31 @@ final class ViewController: UIViewController {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            actionSheet.addAction(UIAlertAction(title: "Caméra", style: .default){ (action: UIAlertAction) in
                 imagePickerController.sourceType = .camera
-                self.present(imagePickerController, animated: true, completion: nil)
-            }))
+                self.present(imagePickerController, animated: true)
+            })
         }
-        actionSheet.addAction(UIAlertAction(title: "Photo library", style: .default, handler: { (action: UIAlertAction) in
+        actionSheet.addAction(UIAlertAction(title: "Bibliothèque", style: .default) { (action: UIAlertAction) in
             imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
-        }))
+            self.present(imagePickerController, animated: true)
+        })
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(actionSheet, animated: true, completion: nil)
+        actionSheet.addAction(UIAlertAction(title: "Annuler", style: .cancel))
+        present(actionSheet, animated: true)
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
-        guard let swipeGesture = swipeGestureRecognizer else { return }
-        setupSwipeDirection()
-        squareImagesView.addGestureRecognizer(swipeGesture)
-        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
-    }
-    
-    // MARK: - Properties
-    
-    private var selectedButton: UIButton?
-    private var swipeGestureRecognizer: UISwipeGestureRecognizer?
-   
+
     @objc /// Adjust view if view change
        private func setupSwipeDirection() {
            if UIDevice.current.orientation == .portrait {
                swipeGestureRecognizer?.direction = .up
-               labelToSwipe.text = "Swipe up to share"
+               labelToSwipe.text = "Glisser vers le haut pour partager"
                
            } else if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
                swipeGestureRecognizer?.direction = .left
-               labelToSwipe.text = "Swipe left to share"
+               labelToSwipe.text = "Glisser vers la gauche pour partager"
+            labelToSwipe.numberOfLines = 0
            }
        }
     
