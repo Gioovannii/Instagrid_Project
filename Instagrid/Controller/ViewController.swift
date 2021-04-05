@@ -47,7 +47,7 @@ final class ViewController: UIViewController {
     
     /// switch action when tapped Layout
     @IBAction private func paternButtonTapped(_ sender: UIButton) {
-        // UnSelect all buttons to normal and selcted the one tapped
+        // UnSelect all buttons to normal and selected the one tapped
         patternButtons.forEach { $0.isSelected = false }
         sender.isSelected = true
         
@@ -55,12 +55,17 @@ final class ViewController: UIViewController {
         case 1:
             topRightView.isHidden = true
             bottomRightView.isHidden = false
+            presentCheckmark()
+            
         case 2:
             topRightView.isHidden = false
             bottomRightView.isHidden = true
+            presentCheckmark()
+            
         case 3:
             topRightView.isHidden = false
             bottomRightView.isHidden = false
+            presentCheckmark()
         default:
             break
         }
