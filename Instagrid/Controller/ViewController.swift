@@ -21,7 +21,29 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var bottomRightView: UIView!
     @IBOutlet private weak var bottomLeftView: UIView!
     @IBOutlet private weak var labelToSwipe: UILabel!
-    @IBOutlet private weak var squareImagesView: UIView!
+    @IBOutlet private weak var squareView: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOutImageView(sender:)))
+        guard let swipeGesture = swipeGestureRecognizer else { return }
+        setupSwipeDirection()
+        squareView.addGestureRecognizer(swipeGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: UIDevice.orientationDidChangeNotification, object: nil)
+        
+        squareView.layer.borderWidth = 1
+        squareView.layer.borderColor = UIColor.white.cgColor
+        squareView.layer.cornerRadius = 20
+        
+        let viewArray = [topLeftView, topRightView, bottomLeftView, bottomRightView]
+        
+        viewArray.forEach {
+            $0?.layer.borderWidth = 1
+            $0?.layer.borderColor = UIColor.white.cgColor
+            $0?.layer.cornerRadius = 20
+        }
+    }
     
     /// switch action when tapped Layout
     @IBAction private func paternButtonTapped(_ sender: UIButton) {
