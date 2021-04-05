@@ -17,7 +17,9 @@ final class ViewController: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet private var patternButtons: [UIButton]!
     @IBOutlet private weak var topRightView: UIView!
+    @IBOutlet private weak var topLeftView: UIView!
     @IBOutlet private weak var bottomRightView: UIView!
+    @IBOutlet private weak var bottomLeftView: UIView!
     @IBOutlet private weak var labelToSwipe: UILabel!
     @IBOutlet private weak var squareImagesView: UIView!
     
