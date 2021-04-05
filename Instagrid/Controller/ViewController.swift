@@ -70,6 +70,14 @@ final class ViewController: UIViewController {
             break
         }
     }
+
+    func presentCheckmark() {
+        let hudView = HudView.hud(inView: squareView, animated: true)
+        hudView.text = "Parfait !"
+        afterDelay(1.0) {
+            hudView.hide()
+        }
+    }
     
     /// UIAlert to ask user interaction
     @IBAction private func pickUpImagesButton(_ sender: UIButton) {
