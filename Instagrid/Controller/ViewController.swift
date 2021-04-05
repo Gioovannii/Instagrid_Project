@@ -137,7 +137,7 @@ final class ViewController: UIViewController {
     /// animate view for sharing
     private func swipeActionUp(gesture: UISwipeGestureRecognizer) {
         UIView.animate(withDuration: 1, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+            self.squareView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
         }) { (_) in
             self.shareUIActivityController()
         }
@@ -146,7 +146,7 @@ final class ViewController: UIViewController {
     /// animate view for sharing
     private func swipeActionLeft(gesture: UISwipeGestureRecognizer) {
         UIView.animate(withDuration: 1, animations: {
-            self.squareImagesView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
+            self.squareView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
         }) { (_) in
             self.shareUIActivityController()
         }
@@ -156,14 +156,14 @@ final class ViewController: UIViewController {
     private func shareUIActivityController() {
         
         // present Activity with transform image
-        let items = [squareImagesView.asImage]
+        let items = [squareView.asImage]
         let ac = UIActivityViewController(activityItems: items , applicationActivities: nil)
         present(ac, animated: true)
         // parameters { activityType, completed(bool), returnItems, activityError }
         ac.completionWithItemsHandler = { _, _ , _, _ in
             UIView.animate(withDuration: 1) {
                 // identity put back element original position
-                self.squareImagesView.transform = .identity
+                self.squareView.transform = .identity
             }
         }
     }
