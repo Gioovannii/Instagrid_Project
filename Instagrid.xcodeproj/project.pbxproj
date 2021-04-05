@@ -16,6 +16,8 @@
 		0492B43123852A55007C3279 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0492B43023852A54007C3279 /* Delm-Medium.otf */; };
 		0492B43223852A5E007C3279 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */; };
 		04975C5B23A77A0F0082170A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04975C5A23A77A0F0082170A /* UIView.swift */; };
+		7B84EDDE2619604600906B31 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B84EDDD2619604600906B31 /* helper.swift */; };
+		7B84EE0826197E1C00906B31 /* Fonction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B84EE0726197E1C00906B31 /* Fonction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		0492B43023852A54007C3279 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		04975C5A23A77A0F0082170A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7B84EDDD2619604600906B31 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		7B84EE0726197E1C00906B31 /* Fonction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		0492B4272385236C007C3279 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
+				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
 				0492B43023852A54007C3279 /* Delm-Medium.otf */,
 				0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */,
@@ -94,8 +99,9 @@
 		0492B42A238523F1007C3279 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0492B41323852345007C3279 /* AppDelegate.swift */,
 				0492B41723852345007C3279 /* ViewController.swift */,
+				7B84EDDD2619604600906B31 /* helper.swift */,
+				7B84EE0726197E1C00906B31 /* Fonction.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Giovanni Gaffé";
 				TargetAttributes = {
 					0492B40F23852345007C3279 = {
@@ -185,7 +191,9 @@
 				04975C5B23A77A0F0082170A /* UIView.swift in Sources */,
 				0492B41823852345007C3279 /* ViewController.swift in Sources */,
 				0492B41423852345007C3279 /* AppDelegate.swift in Sources */,
+				7B84EDDE2619604600906B31 /* helper.swift in Sources */,
 				0492B41623852345007C3279 /* SceneDelegate.swift in Sources */,
+				7B84EE0826197E1C00906B31 /* Fonction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +245,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -261,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -297,6 +306,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -315,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +343,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +364,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56PJN96NRT;
 				INFOPLIST_FILE = "Instagrid/Supported Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
