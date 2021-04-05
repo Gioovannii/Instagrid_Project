@@ -10,8 +10,11 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    // MARK: - IBOutlet and IBAction
-    
+    // MARK: - Properties
+    private var selectedButton: UIButton?
+    private var swipeGestureRecognizer: UISwipeGestureRecognizer?
+   
+    // MARK: - IBOutlet
     @IBOutlet private var patternButtons: [UIButton]!
     @IBOutlet private weak var topRightView: UIView!
     @IBOutlet private weak var bottomRightView: UIView!
