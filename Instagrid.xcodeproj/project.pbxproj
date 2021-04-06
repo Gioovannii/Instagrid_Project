@@ -28,7 +28,7 @@
 		0492B41A23852345007C3279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0492B41C2385234A007C3279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0492B41F2385234A007C3279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0492B4212385234A007C3279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0492B4212385234A007C3279 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		0492B43023852A54007C3279 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		04975C5A23A77A0F0082170A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 				0492B41523852345007C3279 /* SceneDelegate.swift */,
 				0492B43023852A54007C3279 /* Delm-Medium.otf */,
 				0492B42F23852A4E007C3279 /* ThirstySoftRegular.otf */,
-				0492B4212385234A007C3279 /* Info.plist */,
+				0492B4212385234A007C3279 /* Delm-Medium.otf */,
 			);
 			path = "Supported Files";
 			sourceTree = "<group>";
