@@ -42,6 +42,11 @@ final class ViewController: UIViewController {
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.white.cgColor
         }
+        
+        patternButtons.forEach {
+            $0.layer.borderWidth = 2
+            $0.layer.cornerRadius = 20
+            $0.layer.borderColor = UIColor(red: 0.718, green: 0.082, blue: 0.251, alpha: 1).cgColor }
     }
     
     /// switch action when tapped Layout
