@@ -75,7 +75,7 @@ final class ViewController: UIViewController {
         }
     }
 
-    func presentCheckmark() {
+    func presentCheckmark(text: String) {
         let hudView = HudView.hud(inView: squareView, animated: true)
         hudView.text = "Parfait !"
         afterDelay(1.0) {
