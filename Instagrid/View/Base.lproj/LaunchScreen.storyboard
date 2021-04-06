@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThirstySoftRegular.otf">
+            <string>ThirstySoftRegular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,20 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="2Nz-gI-M3t">
-                                <rect key="frame" x="164" y="413" width="100" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="242-CR-GZh">
+                                <rect key="frame" x="114" y="439.66666666666669" width="200" height="46.666666666666686"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="BUk-Nd-A1O"/>
-                                    <constraint firstAttribute="height" constant="100" id="WHX-xt-MLi"/>
-                                    <constraint firstAttribute="width" secondItem="2Nz-gI-M3t" secondAttribute="height" multiplier="1:1" id="e4F-1b-d3h"/>
+                                    <constraint firstAttribute="width" constant="200" id="fiK-Dw-Ziy"/>
                                 </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.41568627450980389" green="0.53725490196078429" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92461991310000002" green="0.62725239990000003" blue="0.19194638729999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="2Nz-gI-M3t" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Qcc-If-8Pg"/>
-                            <constraint firstItem="2Nz-gI-M3t" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oWC-GV-m4E"/>
+                            <constraint firstItem="242-CR-GZh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lgq-D2-fs8"/>
+                            <constraint firstItem="242-CR-GZh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="SvL-qC-q0s"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,7 +44,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Icon" width="100" height="100"/>
-    </resources>
 </document>
