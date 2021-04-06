@@ -59,17 +59,17 @@ final class ViewController: UIViewController {
         case 1:
             topRightView.isHidden = true
             bottomRightView.isHidden = false
-            presentCheckmark()
+            presentCheckmark(text: "Incroyable")
             
         case 2:
             topRightView.isHidden = false
             bottomRightView.isHidden = true
-            presentCheckmark()
+            presentCheckmark(text: "Pas mal")
             
         case 3:
             topRightView.isHidden = false
             bottomRightView.isHidden = false
-            presentCheckmark()
+            presentCheckmark(text: "Parfait")
         default:
             break
         }
